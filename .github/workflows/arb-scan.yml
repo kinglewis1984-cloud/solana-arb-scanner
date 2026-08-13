@@ -1,3 +1,4 @@
+# Cross-DEX spread scanner, alert-only
 name: Arbitrage Scan
 
 on:
