@@ -32,3 +32,4 @@ The workflow runs automatically once those are set — no hosting, no deploy ste
 To watch more tokens, add verified mints to `watchlist.txt` (check them against
 `https://lite-api.jup.ag/tokens/v2/search?query=<symbol>` first — a wrong mint
 fails silently).
+
