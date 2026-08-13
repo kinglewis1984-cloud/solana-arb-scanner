@@ -1,0 +1,11 @@
+# Solana token mints watched for cross-DEX price spreads.
+# Reused from the verified list in solana-swap (all confirmed live against
+# Jupiter's quote API before use).
+So11111111111111111111111111111111111111112   # SOL
+EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v   # USDC
+Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB   # USDT
+JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN   # JUP
+DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263   # BONK
+jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL   # JTO
+EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm   # WIF
+HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3   # PYTH

@@ -1,0 +1,38 @@
+name: Arbitrage Scan
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r scripts/requirements.txt
+
+      - run: python scripts/arb_scan.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MIN_LIQUIDITY_USD: "20000"
+          SPREAD_THRESHOLD_PCT: "1.5"
+          SANITY_CAP_PCT: "25"
+          ALERT_COOLDOWN_SECONDS: "3600"
+
+      - name: Commit updated arb state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/arb_state.json
+          git diff --staged --quiet || git commit -m "chore: update arb scan state"
+          git push
